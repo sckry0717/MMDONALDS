@@ -209,13 +209,13 @@
 </div>
 
 <script>
-    // 商品資料（圖片採用 Unsplash 高解析度寫實食物與飲料圖）
+    // 商品資料（已更新水與熱狗堡的圖片連結）
     const products = [
         { id: 1, name: '果汁', price: 30, img: 'https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=400&q=80' },
         { id: 2, name: '牛奶', price: 40, img: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=400&q=80' },
         { id: 3, name: '漢堡', price: 60, img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80' },
-        { id: 4, name: '水', price: 10, img: 'https://images.unsplash.com/photo-1608885898957-a599fb1ee65e?auto=format&fit=crop&w=400&q=80' },
-        { id: 5, name: '熱狗堡', price: 50, img: 'https://images.unsplash.com/photo-1627059827723-a5a40d84347c?auto=format&fit=crop&w=400&q=80' },
+        { id: 4, name: '水', price: 10, img: 'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=400&q=80' },
+        { id: 5, name: '熱狗堡', price: 50, img: 'https://images.unsplash.com/photo-1619740455993-9e612b1af08a?auto=format&fit=crop&w=400&q=80' },
         { id: 6, name: '冰淇淋', price: 45, img: 'https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=400&q=80' }
     ];
 
@@ -256,7 +256,6 @@
             cart.push({ ...product, quantity });
         }
 
-        // 重置輸入框數量為 1
         qtyInput.value = 1;
         renderCart();
     }
@@ -299,26 +298,21 @@
         totalPriceEl.innerText = total;
     }
 
-    // 模擬支付按鈕功能
+    // 模擬支付功能
     function handlePayment() {
         if (cart.length === 0) {
             alert('您的購物車是空的，請先點餐唷！');
             return;
         }
-        
         const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        
-        // 彈出確認視窗
         const confirmPay = confirm(`訂單總計 $${total} 元。\n是否確認模擬支付？`);
-        
         if (confirmPay) {
             alert('🎉 支付成功！感謝您的訂購！（本系統為模擬環境，未收取任何費用）');
-            cart = []; // 清空購物車
+            cart = [];
             renderCart();
         }
     }
 
-    // 頁面載入時執行
     renderMenu();
 </script>
 
